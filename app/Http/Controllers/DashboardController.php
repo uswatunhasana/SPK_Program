@@ -15,9 +15,9 @@ class DashboardController extends Controller
         $warnas = Kategori::where('kriteria_id','2')->select('*')->get();
         $dauns = Kategori::where('kriteria_id','3')->select('*')->get();
         $pucuks = Kategori::where('kriteria_id','4')->select('*')->get();
-        $alternatifs = Alternatif::all();
+        $hasils = Alternatif::with(['alternatif'])->orderBy('rangking', 'ASC')->get();
         $jumlah_alternatif = Alternatif::count();
-        return view('welcome',compact('batangs','warnas','pucuks','dauns','alternatifs','jumlah_alternatif'));
+        return view('welcome',compact('batangs','warnas','pucuks','dauns','hasils','jumlah_alternatif'));
     }
 
 
