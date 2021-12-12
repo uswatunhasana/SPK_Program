@@ -121,7 +121,7 @@ https://templatemo.com/tm-568-digimedia
           </div>
         </div>
       </div>
-      
+      @if($jumlah_alternatif !=0)
       <table class="table table-light">
         <thead>
           <tr>
@@ -131,10 +131,18 @@ https://templatemo.com/tm-568-digimedia
           </tr>
         </thead>
         <tbody>
+          @foreach($hasils as $hasil)
+          <tr>
+            <td>{{ $hasil->alternatif->nama_alternatif }}</td>
+            <td>{{ $hasil->nilai}}</td>
+            <td>{{ $hasil->rangking }}</td>
+            @endforeach
         </tbody>
       </table>
-      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addRowModal">Masukkan Alternatif</button>
-      <button type="submit" class="btn btn-secondary btn-sm">Coba Lagi</button>
+      <button type="submit" class="btn btn-secondary btn-lg">Coba Lagi</button>
+      @else
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addRowModal">Masukkan Alternatif</button>
+      @endif
     </div>
   </div>
 
@@ -142,7 +150,7 @@ https://templatemo.com/tm-568-digimedia
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Alternatif Kode</h5>
+          <h5 class="modal-title">Input Bibit Alternatif </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -151,7 +159,7 @@ https://templatemo.com/tm-568-digimedia
             @method('POST')
             <div class="control-group after-add-more">
               <div class="mb-3 row justify-content-center">
-                <label for="inputNamaBibit" class="col-sm-2 col-form-label">Alternatif Bibit</label>
+                <label for="inputNamaBibit" class="col-sm-2 col-form-label"><b>Alternatif Bibit</b></label>
                 <div class="col-sm-6">
                   <input type="text" class="form-control" name="nama_bibit[]" id="inputNamaBibit" placeholder="Masukkan Nama Bibit">
                 </div>
@@ -222,7 +230,7 @@ https://templatemo.com/tm-568-digimedia
   <div class="copy invisible">
     <div class="control-group">
       <div class="mb-3 row justify-content-center">
-        <label for="inputNamaBibit" class="col-sm-2 col-form-label">Alternatif Bibit</label>
+        <label for="inputNamaBibit" class="col-sm-2 col-form-label"><b>Alternatif Bibit</b></label>
         <div class="col-sm-6">
           <input type="text" class="form-control" name="nama_bibit[]" id="inputNamaBibit" placeholder="Masukkan Nama Bibit">
         </div>
