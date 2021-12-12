@@ -23,7 +23,7 @@ class HitungController extends Controller
         $hasil_alternatif = new Alternatif;
 
         foreach ($data as $key => $value) {
-            $hasil_alternatif->nama_alternatif = $re
+           
             return $value;
         }
     }
