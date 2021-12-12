@@ -15,8 +15,8 @@ class CreateAlternatifsTable extends Migration
     {
         Schema::create('alternatifs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nilai');
-            $table->string('rangking');
+            $table->float('nilai',4,2);
+            $table->string('rangking',2);
             //relasi alternatif
             $table->unsignedInteger('alternatif_id')->nullable();
             $table->foreign('alternatif_id')
