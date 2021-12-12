@@ -158,7 +158,7 @@ https://templatemo.com/tm-568-digimedia
             @csrf
             @method('POST')
             <div class="control-group after-add-more">
-              <div class="mb-3 row justify-content-center">
+              <div class="mb-3 row justify-content-left">
                 <label for="inputNamaBibit" class="col-sm-2 col-form-label"><b>Alternatif Bibit</b></label>
                 <div class="col-sm-6">
                   <input type="text" class="form-control" name="nama_bibit[]" id="inputNamaBibit" placeholder="Masukkan Nama Bibit">
@@ -229,7 +229,7 @@ https://templatemo.com/tm-568-digimedia
 
   <div class="copy invisible">
     <div class="control-group">
-      <div class="mb-3 row justify-content-center">
+      <div class="mb-3 row justify-content-left">
         <label for="inputNamaBibit" class="col-sm-2 col-form-label"><b>Alternatif Bibit</b></label>
         <div class="col-sm-6">
           <input type="text" class="form-control" name="nama_bibit[]" id="inputNamaBibit" placeholder="Masukkan Nama Bibit">
