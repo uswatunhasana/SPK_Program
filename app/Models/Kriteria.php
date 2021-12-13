@@ -13,7 +13,7 @@ class Kriteria extends Model
         'kode',
         'nama_kriteria',
         'jenis',
-        'bobot'
+        'bobot',
     ];
     public function kategori()
     {
