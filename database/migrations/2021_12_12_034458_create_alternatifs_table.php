@@ -18,12 +18,12 @@ class CreateAlternatifsTable extends Migration
             $table->float('nilai',4,2);
             $table->string('rangking',2);
             //relasi alternatif
-            $table->unsignedInteger('alternatif_id')->nullable();
-            $table->foreign('alternatif_id')
-                ->on('hasilnilais')
-                ->references('id')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            // $table->unsignedInteger('alternatif_id')->nullable();
+            // $table->foreign('alternatif_id')
+            //     ->on('hasilnilais')
+            //     ->references('id')
+            //     ->onUpdate('cascade')
+            //     ->onDelete('cascade');
             $table->timestamps();
         });
     }
