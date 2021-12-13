@@ -220,7 +220,7 @@ https://templatemo.com/tm-568-digimedia
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-          <button type="button" class="btn btn-primary">Cek Hasil</button>
+          <button type="submit" class="btn btn-primary">Cek Hasil</button>
         </div>
         </form>
       </div>
