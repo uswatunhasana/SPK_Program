@@ -10,7 +10,7 @@ class Alternatif extends Model
     use HasFactory;
     protected $fillable = 
     [
-        'alternatif_id',
+        'nama_bibit',
         'nilai',
         'rangking',
     ];
