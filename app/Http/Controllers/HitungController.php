@@ -13,12 +13,12 @@ class HitungController extends Controller
 {
     public function index()
     {
+        Alternatif::query()->truncate();
         $batangs = Kategori::where('kriteria_id','1')->select('*')->get();
         $warnas = Kategori::where('kriteria_id','2')->select('*')->get();
         $dauns = Kategori::where('kriteria_id','3')->select('*')->get();
         $pucuks = Kategori::where('kriteria_id','4')->select('*')->get();
-        $hasils = Alternatif::with(['alternatif'])->orderBy('rangking', 'ASC')->get();
-        $jumlah_alternatif = Alternatif::count();
+
         return view('welcome',compact('batangs','warnas','pucuks','dauns','hasils','jumlah_alternatif'));
     }
 
@@ -37,16 +37,20 @@ class HitungController extends Controller
         $bobot = Kriteria::select('bobot')->get()->toArray();
 
         foreach ($request->bentuk_batang as $key => $val) {
-            $matriks[$key][0] = round(($val / max($request->bentuk_batang)), 2);
+            // $matriks[$key][0] = round(($val / max($request->bentuk_batang)), 2);
+            $matriks[$key][0] = $val / max($request->bentuk_batang);
         }
         foreach ($request->warna_batang as $key => $val) {
-            $matriks[$key][1] = round(($val / max($request->warna_batang)), 2);
+            // $matriks[$key][1] = round(($val / max($request->warna_batang)),2);
+            $matriks[$key][1] = $val / max($request->warna_batang);
         }
         foreach ($request->daun as $key => $val) {
-            $matriks[$key][2] = round(($val / max($request->daun)), 2);
+            // $matriks[$key][2] = round(($val / max($request->daun)), 2);
+            $matriks[$key][2] = $val / max($request->daun);
         }
         foreach ($request->pucuk_daun as $key => $val) {
-            $matriks[$key][3] = round(($val / max($request->pucuk_daun)), 2);
+            // $matriks[$key][3] = round(($val / max($request->pucuk_daun)), 2);
+            $matriks[$key][3] = $val / max($request->pucuk_daun);
         }
 
         foreach ($matriks as $matrik) {
@@ -58,6 +62,7 @@ class HitungController extends Controller
         }
         $total = collect($total)->sort()->reverse();
         $i=1;
+        dd($total);
         foreach($total as $t){
             $hasil = new Alternatif;
             $hasil->nama_bibit = $request->nama_bibit[$i-1];
